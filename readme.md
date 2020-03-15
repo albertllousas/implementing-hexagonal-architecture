@@ -5,9 +5,8 @@ The idea of this project is to understand and see how we can apply hexagonal arc
 
 ## Hexagonal architecture overview
 
-Hexagonal architecture is an architectural pattern, a way to build an structure your applications in order to obtain
-  testable, loosely-coupled, framework agnostic, domain-centric, easy to evolve and less prone
-  to errors applications.
+Hexagonal architecture is an architectural pattern, a way to build and structure your applications in order to obtain
+  testable, loosely-coupled, framework agnostic, domain-centric, easy to evolve and less prone to errors applications.
  
 But hexagonal is not a new trend, it has been here for a while, this kind of architecture was invented by [Alistair
  Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn) in an made public in an [article](https://alistair.cockburn.us/hexagonal-architecture/) published in 2005.
@@ -29,8 +28,8 @@ I want to transfer money to other customer of this bank
 So that, I can make an instant transfer
 ```
 
-Having said that, our app will be a simple banking app with one use case, we will apply just an hexagonal approach
-, trying to push all frameworks our of our domain 
+Having said that, our app will be a simple banking app with one use case, we will try to apply the most simple 
+ hexagonal approach that could be extrapolated for a bigger and complex application.
 
 ## The hexagon in our app 
 
