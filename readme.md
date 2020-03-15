@@ -38,8 +38,6 @@ Trying to stick on the principles of the original idea of Alistair Cockburn and 
  tried to organize the code around these ideas; this is just a personal approach from the original article, so don't
   take it as a bible ;).
 
-
- 
 These are the packages of our app:
 ```shell
 `-- com
@@ -71,7 +69,7 @@ This is how a typical hexagonal app looks like:
 </p>
 
 You can also see that there is no line from the domain to the ports, but domain can also access to the ports in case
- of necessity or if your project use a fully rich domain  
+ of necessity or if your project use a fully rich domain.
 
 ### App core: 
 The core of the hexagon, all the app code lives here, it is **isolated from the rest of the world**, only dependencies
@@ -79,7 +77,7 @@ The core of the hexagon, all the app code lives here, it is **isolated from the 
 - *Domain*: The heart of our application, all the business logic, state and behavior.
 - *Ports*: **The boundary of the hexagon**, every communication from/to the outside world to our app will be through
  these boundaries, they are just interfaces.
-    - *Driver/primary/inputv:An input port is a simple interface that can be called by the entrypoints and it is
+    - *Driver/primary/input*:An input port is a simple interface that can be called by the entrypoints and it is
      implemented by a use case, basically it is the API of the application.
      
     - *Driven/secondary/output*: a simple interface that can be called by our use cases or domain if they need
@@ -93,7 +91,7 @@ The core of the hexagon, all the app code lives here, it is **isolated from the 
 ### Infrastructure
 
 This layer is where all components outside of our app live, the I/O components UI, database, frameworks, libs
-, devices, clients... everything but the app cpre.
+, devices, clients... everything but the app core.
 - *Adapters*: In hexagonal architecture all the primary and secondary actors interact with the application ports
  through adapters, they are the translators between the domain and the infrastructure. 
     - *Driver/primary/input*: Primary adapters or “driving” adapters, they call the driver ports to initiate
@@ -104,12 +102,12 @@ This layer is where all components outside of our app live, the I/O components U
           ...)
 - *Config and other packages*: Here we can add any configuration that we need at framework level to run our app.
 
-### Components
+### Banking app hexagonal architecture
 
-Next diagram shows how our transfer looks like in the hexagon:
+Next diagram shows how our components fit in the hexagon:
 
 <p align="center">
-  <img src="misc/hexagonal-transfers-app.png">
+  <img src="misc/hexagonal-bank-app.png">
 </p>
 
 ## tech stack
