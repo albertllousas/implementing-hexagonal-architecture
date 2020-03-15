@@ -119,5 +119,24 @@ Next diagram shows how our components fit in the hexagon:
     * [Assertj](https://joel-costigliola.github.io/assertj/)
     * [Mockk](https://mockk.io/)
     * [REST Assured](http://rest-assured.io/)
-
+    
+    
+    https://github.com/piomin/sample-kotlin-ktor-microservices
+    https://www.bradcypert.com/controllers-in-ktor/
+    https://ktor.io/servers/structure.html
+    https://ktor.io/servers/deploy/packing/fatjar.html
+    https://www.infoq.com/articles/microservices-kotlin-ktor/
+    https://github.com/AndreasVolkmann/realworld-kotlin-ktor/blob/master/src/main/kotlin/me/avo/realworld/kotlin/ktor/server/routes/ArticleRoute.kt
+    https://ktor.io/quickstart/quickstart/gradle.html
+    
+    test
+    https://github.com/ktorio/ktor-samples/blob/master/app/youkube/test/YoukubeApplicationTest.kt
+    https://ktor.io/servers/testing.html
+    
+    https://ktor.io/samples/feature/testable.html
+    https://ktor.io/servers/testing.html
+    https://ryanharrison.co.uk/2019/02/10/testing-restful-services-kotlin-with-rest-assured.html
+    https://github.com/raharrison/kotlin-ktor-exposed-starter/blob/master/src/test/kotlin/common/ServerTest.kt
+    
+    https://ktor.io/servers/structure.html#defining-modules
   
