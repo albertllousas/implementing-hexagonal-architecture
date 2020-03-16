@@ -1,6 +1,7 @@
 package com.bank.transfers.acceptance
 
 import com.bank.transfers.infrastructure.config.module
+import com.bank.transfers.infrastructure.config.runServer
 import io.ktor.application.Application
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
@@ -21,10 +22,9 @@ class TransferMoneyAcceptanceTest {
     fun `set up`() {
         RestAssured.baseURI = "http://localhost"
         RestAssured.port = appPort
-        server = embeddedServer(
-            factory = Netty,
+        server = runServer(
             port = appPort,
-            module = Application::module
+            appModule = Application::module
         ).start()
     }
 
