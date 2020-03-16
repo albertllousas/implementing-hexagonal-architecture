@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.3.41"
@@ -35,6 +37,10 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+val compileKotlin: KotlinCompile by tasks
+
+compileKotlin.kotlinOptions.freeCompilerArgs += arrayOf("-Xinline-classes")
 
 application {
     mainClassName = "com.bank.transfers.infrastructure.config.AppKt"

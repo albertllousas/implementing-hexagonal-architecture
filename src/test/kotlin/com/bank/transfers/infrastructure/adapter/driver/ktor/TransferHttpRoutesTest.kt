@@ -2,9 +2,9 @@ package com.bank.transfers.infrastructure.adapter.driver.ktor
 
 import com.bank.transfers.app.port.driver.TransferMoney
 import com.bank.transfers.app.port.driver.TransferMoneyRequest
+import com.bank.transfers.app.port.driver.TransferMoneyResponse.AccountNotFound
 import com.bank.transfers.app.port.driver.TransferMoneyResponse.NotEnoughFounds
 import com.bank.transfers.app.port.driver.TransferMoneyResponse.Success
-import com.bank.transfers.app.port.driver.TransferMoneyResponse.UserNotFound
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import io.ktor.application.install
@@ -51,7 +51,7 @@ class TransferHttpRoutesTest {
             val request = TransferHttpRequest(TEN, randomUUID(), randomUUID())
             every {
                 transferMoneyPort(TransferMoneyRequest(request.amount, request.from, request.to))
-            } returns UserNotFound(request.from)
+            } returns AccountNotFound(request.from)
 
             val call = handleRequest(HttpMethod.Post, "/transfers") {
                 addHeader("Content-Type", "application/json")
@@ -59,7 +59,7 @@ class TransferHttpRoutesTest {
             }
 
             assertThat(call.response.status()).isEqualTo(HttpStatusCode.NotFound)
-            assertThat(objectMapper.readValue<Error>(call.response.content?:""))
+            assertThat(objectMapper.readValue<Error>(call.response.content ?: ""))
                 .isEqualTo(Error("User '${request.from}' not found"))
         }
 
@@ -69,7 +69,7 @@ class TransferHttpRoutesTest {
             val request = TransferHttpRequest(TEN, randomUUID(), randomUUID())
             every {
                 transferMoneyPort(TransferMoneyRequest(request.amount, request.from, request.to))
-            } returns NotEnoughFounds(request.from)
+            } returns NotEnoughFounds
 
             val call = handleRequest(HttpMethod.Post, "/transfers") {
                 addHeader("Content-Type", "application/json")
@@ -77,7 +77,7 @@ class TransferHttpRoutesTest {
             }
 
             assertThat(call.response.status()).isEqualTo(HttpStatusCode.BadRequest)
-            assertThat(objectMapper.readValue<Error>(call.response.content?:""))
+            assertThat(objectMapper.readValue<Error>(call.response.content ?: ""))
                 .isEqualTo(Error("Not enough founds"))
         }
 
@@ -87,7 +87,7 @@ class TransferHttpRoutesTest {
             install(Routing) {
                 transfers(transferMoneyPort)
             }
-        } , callback)
+        }, callback)
     }
 
 }

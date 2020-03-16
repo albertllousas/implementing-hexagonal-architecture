@@ -4,16 +4,10 @@ import io.ktor.application.Application
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 
-fun main(args: Array<String>): Unit {
-    runServer(Application::module)
-}
-
-fun runServer(
-    appModule: (Application) -> Unit,
-    port: Int = 8080
-) =
+fun main(args: Array<String>) {
     embeddedServer(
         factory = Netty,
-        port = port,
-        module = appModule
+        port = 8080,
+        module = Application::module
     ).start(wait = true)
+}

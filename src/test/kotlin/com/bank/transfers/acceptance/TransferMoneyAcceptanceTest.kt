@@ -1,14 +1,12 @@
 package com.bank.transfers.acceptance
 
 import com.bank.transfers.infrastructure.config.module
-import com.bank.transfers.infrastructure.config.runServer
 import io.ktor.application.Application
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.restassured.RestAssured
 import io.restassured.http.ContentType
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
@@ -21,20 +19,17 @@ class TransferMoneyAcceptanceTest {
     @BeforeEach
     fun `set up`() {
         RestAssured.baseURI = "http://localhost"
-        RestAssured.port = appPort
-        server = runServer(
+        RestAssured.port = 8080
+        embeddedServer(
+            factory = Netty,
             port = appPort,
-            appModule = Application::module
+            module = Application::module
         ).start()
-    }
-
-    @AfterEach
-    fun `tear down`() {
-        server.stop(500, 500)
+        Runtime.getRuntime().addShutdownHook(Thread { server.stop(0, 0) })
     }
 
     @Test
-    fun `should`() {
+    fun `should move money from one customer to another`() {
 
         RestAssured
             .given()

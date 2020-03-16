@@ -15,8 +15,9 @@ data class TransferMoneyRequest(
 
 sealed class TransferMoneyResponse {
     object Success : TransferMoneyResponse()
-    data class UserNotFound(val userId: UUID) : TransferMoneyResponse()
-    data class NotEnoughFounds(val userId: UUID) : TransferMoneyResponse()
+    data class AccountNotFound(val userId: UUID) : TransferMoneyResponse()
+    object NotEnoughFounds : TransferMoneyResponse()
+    object InvalidAmount : TransferMoneyResponse()
 }
 
 

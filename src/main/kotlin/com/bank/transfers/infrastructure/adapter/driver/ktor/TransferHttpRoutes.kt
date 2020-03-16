@@ -2,10 +2,8 @@ package com.bank.transfers.infrastructure.adapter.driver.ktor
 
 import com.bank.transfers.app.port.driver.TransferMoney
 import com.bank.transfers.app.port.driver.TransferMoneyRequest
-import com.bank.transfers.app.port.driver.TransferMoneyResponse
 import com.bank.transfers.app.port.driver.TransferMoneyResponse.*
 import io.ktor.application.call
-import io.ktor.http.HttpStatusCode
 import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.Route
@@ -23,8 +21,9 @@ fun Route.transfers(transferMoneyPort: TransferMoney) = route("/transfers") {
         val response = transferMoneyPort.invoke(TransferMoneyRequest(request.amount, request.from, request.to))
         when(response) {
             is Success -> call.respond(Created)
-            is UserNotFound -> call.respond(NotFound, Error("User '${response.userId}' not found"))
+            is AccountNotFound -> call.respond(NotFound, Error("User '${response.userId}' not found"))
             is NotEnoughFounds -> call.respond(BadRequest, Error("Not enough founds"))
+            is InvalidAmount -> call.respond(BadRequest, Error("Invalid amount"))
         }.exhaustive
     }
 }
