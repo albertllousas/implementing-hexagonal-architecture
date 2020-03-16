@@ -4,6 +4,7 @@ import com.bank.transfers.app.domain.Account
 import com.bank.transfers.app.domain.CustomerId
 import com.bank.transfers.app.domain.Transfer
 import com.bank.transfers.app.domain.create
+import com.bank.transfers.app.domain.isValid
 import com.bank.transfers.app.port.driven.AccountFinder
 import com.bank.transfers.app.port.driven.Transactor
 import com.bank.transfers.app.port.driven.TransactorResult
@@ -19,11 +20,12 @@ import java.math.BigDecimal
 class TransferMoneyUseCase(
     private val accountFinder: AccountFinder,
     private val transactor: Transactor,
-    private val createTransfer: (Account, Account, BigDecimal) -> Transfer = Transfer.Companion::create
+    private val createTransfer: (Account, Account, BigDecimal) -> Transfer = Transfer.Companion::create,
+    private val isValidAmountForTransfer: (BigDecimal) -> Boolean = Transfer.Companion::isValid
 ) : TransferMoney {
 
     override fun invoke(request: TransferMoneyRequest): TransferMoneyResponse {
-        if(request.amount < BigDecimal.ONE) return InvalidAmount
+        if(!isValidAmountForTransfer(request.amount)) return InvalidAmount
         val from = accountFinder.find(CustomerId(request.from)) ?: return AccountNotFound(request.from)
         val to = accountFinder.find(CustomerId(request.to)) ?: return AccountNotFound(request.to)
         val transfer = createTransfer(from, to, request.amount)
