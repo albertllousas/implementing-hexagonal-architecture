@@ -3,6 +3,8 @@
 The idea of this project is to understand and see how we can apply hexagonal architecture in terms of packaging
 , naming, structure and all concerns that you can face in a real project.
 
+Everything will be covered with test during the process because it has been done doing outside-in tdd.
+
 ## Hexagonal architecture overview
 
 Hexagonal architecture is an architectural pattern, a way to build and structure your applications in order to obtain
@@ -118,4 +120,4 @@ Next diagram shows how our components fit in the hexagon:
     * [JUnit 5](https://junit.org/junit5/docs/current/user-guide/)
     * [Assertj](https://joel-costigliola.github.io/assertj/)
     * [Mockk](https://mockk.io/)
-    * [REST Assured](http://rest-assured.io/)  
+    * [REST Assured](http://rest-assured.io/)
