@@ -102,6 +102,7 @@ These are the packages of our app:
                     `-- driver
 
 ```
+This a simple approach, for a complex projects you can always apply [package-by-feature](http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html) or [package-by-component.](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
 
 You can notice that, we have separated the `app` from `infrastructure`, this separation comes from the original
  [diagrams](https://alistair.cockburn.us/hexagonal-architecture/) drawn in 2005, where you have the app, the core of
@@ -118,3 +119,15 @@ You can notice that, we have separated the `app` from `infrastructure`, this sep
     * [Assertj](https://joel-costigliola.github.io/assertj/)
     * [Mockk](https://mockk.io/)
     * [REST Assured](http://rest-assured.io/)
+
+## Running tests
+```shell
+.gradlew test
+```
+## Run the app
+```shell
+.gradlew build
+```
+Available accounts: 
+
+
