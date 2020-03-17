@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     // Apply the Kotlin JVM plugin to add support for Kotlin.
     id("org.jetbrains.kotlin.jvm") version "1.3.41"
+
+    id("com.github.johnrengelman.shadow") version "5.0.0"
     // Apply the application plugin to add support for building a CLI application.
     application
 }
@@ -23,6 +25,7 @@ dependencies {
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
     implementation("io.ktor:ktor-jackson:$ktorVersion")
+    implementation("ch.qos.logback:logback-classic:1.2.3")
 
     testImplementation("org.assertj:assertj-core:3.15.0")
     testImplementation("io.mockk:mockk:1.9.3")
@@ -43,5 +46,15 @@ val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions.freeCompilerArgs += arrayOf("-Xinline-classes")
 
 application {
-    mainClassName = "com.bank.transfers.infrastructure.config.AppKt"
+    mainClassName = "com.bank.transfers.infrastructure.config.ApplicationRunnerKt"
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes(
+            mapOf(
+                "Main-Class" to application.mainClassName
+            )
+        )
+    }
 }

@@ -131,11 +131,12 @@ Hexagonal is also usually mixed with other patterns like CQRS or DDD, like Vaugh
 
 ## Running tests
 ```shell
-.gradlew test
+./gradlew test
 ```
 ## Run the app
 ```shell
-.gradlew build
+./gradlew build
+java -jar build/libs/implementing-hexagonal-architecture-all.jar 
 ```
 
 

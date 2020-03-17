@@ -31,24 +31,24 @@ class TransferMoneyAcceptanceTest {
     @Test
     fun `should move money from one customer to another`() {
 
-        RestAssured
-            .given()
-            .contentType(ContentType.JSON)
-            .body(
-                """
-					{ 
-						"amount": 10.00, 
-                        "from": "fd1096fb-a7c5-46de-8433-e1b8c3db1ed5", 
-                        "to": "b6b473da-2d0f-41c9-ac4a-89a08a05ab36" 
-					}
-				"""
-            )
-            .`when`()
-            .port(appPort)
-            .post("/transfers")
-            .then()
-            .assertThat()
-            .statusCode(201)
+//        RestAssured
+//            .given()
+//            .contentType(ContentType.JSON)
+//            .body(
+//                """
+//					{
+//						"amount": 10.00,
+//                        "from": "fd1096fb-a7c5-46de-8433-e1b8c3db1ed5",
+//                        "to": "b6b473da-2d0f-41c9-ac4a-89a08a05ab36"
+//					}
+//				"""
+//            )
+//            .`when`()
+//            .port(appPort)
+//            .post("/transfers")
+//            .then()
+//            .assertThat()
+//            .statusCode(201)
 //            .extract()
 //            .response()
 //            .also {
