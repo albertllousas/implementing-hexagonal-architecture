@@ -102,12 +102,19 @@ These are the packages of our app:
                     `-- driver
 
 ```
-This a simple approach, for a complex projects you can always apply [package-by-feature](http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html) or [package-by-component.](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/)
-
 You can notice that, we have separated the `app` from `infrastructure`, this separation comes from the original
  [diagrams](https://alistair.cockburn.us/hexagonal-architecture/) drawn in 2005, where you have the app, the core of
   your hexagon, and then the rest, the IT infrastructure, the composite hardware, software, network resources and
    services.  
+
+### Important note: modern approaches
+
+Maybe this an approach is a bit verbose in terms of naming and packaging, but it is made for the sake of understanding
+ the pattern.
+
+Modern approaches are based on this idea, omitting all the ports and adapters, changing this packaging by [package-by-feature](http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html) 
+or [package-by-component](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/) or mixed with DDD, like Vaughn Vernon does.
+
 
 ## tech stack
 
@@ -128,6 +135,5 @@ You can notice that, we have separated the `app` from `infrastructure`, this sep
 ```shell
 .gradlew build
 ```
-Available accounts: 
 
 
