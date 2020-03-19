@@ -1,11 +1,5 @@
-package com.bank.transfers.app.domainimport
+package com.bank.transfers.app.domain
 
-import com.bank.transfers.app.domain.Account
-import com.bank.transfers.app.domain.AccountId
-import com.bank.transfers.app.domain.Transaction
-import com.bank.transfers.app.domain.Transfer
-import com.bank.transfers.app.domain.create
-import com.bank.transfers.app.domain.isValid
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal.TEN
@@ -23,12 +17,8 @@ class TransferTest {
 
         val transfer = Transfer.create(accountFrom, accountTo, TEN)
 
-        assertThat(transfer).isEqualTo(
-            Transfer(
-                Transaction.Debit(TEN.negate(), accountFrom.accountId),
-                Transaction.Credit(TEN, accountTo.accountId)
-            )
-        )
+        assertThat(transfer.credit).isEqualTo(Transaction.Credit(TEN, accountTo.accountId))
+        assertThat(transfer.debit).isEqualTo(Transaction.Debit(TEN, accountFrom.accountId))
     }
 
     @Test

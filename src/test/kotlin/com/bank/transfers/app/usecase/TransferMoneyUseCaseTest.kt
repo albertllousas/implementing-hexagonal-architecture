@@ -32,10 +32,7 @@ class TransferMoneyUseCaseTest {
         val request = TransferMoneyRequest(BigDecimal.TEN, UUID.randomUUID(), UUID.randomUUID())
         val accountFrom = Account(AccountId(UUID.randomUUID()))
         val accountTo = Account(AccountId(UUID.randomUUID()))
-        val transfer = Transfer(
-            Transaction.Debit(request.amount.negate(), accountFrom.accountId),
-            Transaction.Credit(request.amount, accountTo.accountId)
-        )
+        val transfer = Transfer.create(accountFrom, accountTo, request.amount)
         every { accountFinder.find(CustomerId(request.from)) } returns accountFrom
         every { accountFinder.find(CustomerId(request.to)) } returns accountTo
         every { createTransfer(accountFrom, accountTo, request.amount) } returns transfer
@@ -82,10 +79,7 @@ class TransferMoneyUseCaseTest {
         val request = TransferMoneyRequest(BigDecimal.TEN, UUID.randomUUID(), UUID.randomUUID())
         val accountFrom = Account(AccountId(UUID.randomUUID()))
         val accountTo = Account(AccountId(UUID.randomUUID()))
-        val transfer = Transfer(
-            Transaction.Debit(request.amount.negate(), accountFrom.accountId),
-            Transaction.Credit(request.amount, accountTo.accountId)
-        )
+        val transfer = Transfer.create(accountFrom, accountTo, request.amount)
         every { accountFinder.find(CustomerId(request.from)) } returns accountFrom
         every { accountFinder.find(CustomerId(request.to)) } returns accountTo
         every { createTransfer(accountFrom, accountTo, request.amount) } returns transfer
