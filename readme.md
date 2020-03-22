@@ -117,6 +117,16 @@ Modern approaches are based/inspired on this idea, omitting ports and adapters p
   
 Hexagonal is also usually mixed with other patterns like CQRS or DDD, like Vaughn Vernon [does in his samples od DDD](https://github.com/VaughnVernon/IDDD_Samples).
 
+#### Modern layering
+
+It is important to mention that almost that it is almost a convention in all hexagonal projects to follow the
+ following packaging and layering:
+ 
+ - Application: Application Services (the use cases) 
+ - Domain model: domain and ports
+ - Infrastructure: adapters
+
+We didn't follow these trends because we wanted to follow the original idea.
 
 ## tech stack
 
