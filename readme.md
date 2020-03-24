@@ -119,8 +119,8 @@ Hexagonal is also usually mixed with other patterns like CQRS or DDD, like Vaugh
 
 #### Modern layering
 
-It is important to mention that almost that it is almost a convention in all hexagonal projects to follow the
- following packaging and layering:
+It is important to mention that it is almost a convention in all hexagonal projects to follow the following packaging
+ and layering:
  
  - Application: Application Services (the use cases) 
  - Domain model: domain and ports
