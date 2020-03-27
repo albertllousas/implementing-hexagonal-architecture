@@ -97,14 +97,14 @@ These are the packages of our app, hexagonal does not force to have any pakage s
             |-- app // the hexagon
             |   |-- domain // our domain model
             |   |-- port // boundaries
-            |   |   |-- driver // inbound/left/primary boundary to the hexagon (interfaces), hexagon entrypoint
-            |   |   `-- driven // outbound/right/secondary boundary to the hexagon (interfaces)
-            |   `-- usecase // driver implementations, orchestrators of the user use-cases
+            |   |   |-- driver // inbound/left boundary to the hexagon (interfaces), hexagon entrypoint
+            |   |   `-- driven // outbound/right boundary to the hexagon (interfaces)
+            |   `-- usecase // implementation driver ports, orchestrators of the user use-cases
             `-- infrastructure
                 `-- config
                 `-- adapter
-                    |-- driver // driver adapters use/call driver port interfaces
-                    `-- driven // driven adapters implement outbound/right/secondary ports
+                    |-- driver // use/call driver port interfaces
+                    `-- driven // implement driven ports
 
 ```
 You can notice that, we have separated the `app` from `infrastructure`, this separation comes from the original
