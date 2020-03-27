@@ -84,8 +84,11 @@ Trying to stick on the principles of the original idea of Alistair Cockburn and 
  tried to organize the code around these ideas; this is just a personal approach from the original article, so don't
   take it as a bible ;).
 
-These are the packages of our app:
-```shell
+### Code structure
+
+These are the packages of our app, hexagonal does not force to have any pakage structure, it's all about ports and
+ adapters, but we have tried to **go-by-the-book** and follow Alistair Cockburn first idea: 
+ ```shell
 `-- com
     `-- bank
         `-- transfers
