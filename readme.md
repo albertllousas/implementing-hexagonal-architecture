@@ -53,6 +53,8 @@ This layer is where all components outside of our app live, the I/O components U
  through adapters, they are the translators between the domain and the infrastructure. 
     - *Driver/primary/input*: Primary adapters or “driving” adapters, they call the driver ports to initiate
          interactions with the app, the entrypoints to our app. (controllers, schedulers, queue consumers, console ...)
+         A driver adapter uses a driver port interface, converting a specific technology request into a technology agnostic 
+         request to a driver port.
          
     - *Driven/secondary/output*: They implement the driven ports of our domain, they adapt any external interaction
          with the outside world to our domain, they are called from our app domain/usecases. (database, http-clients
@@ -92,17 +94,17 @@ These are the packages of our app, hexagonal does not force to have any pakage s
 `-- com
     `-- bank
         `-- transfers
-            |-- app 
-            |   |-- domain
-            |   |-- port
-            |   |   |-- driven
-            |   |   `-- driver
-            |   `-- usecase
+            |-- app // the hexagon
+            |   |-- domain // our domain model
+            |   |-- port // boundaries
+            |   |   |-- driver // inbound/left/primary boundary to the hexagon (interfaces), hexagon entrypoint
+            |   |   `-- driven // outbound/right/secondary boundary to the hexagon (interfaces)
+            |   `-- usecase // driver implementations, orchestrators of the user use-cases
             `-- infrastructure
                 `-- config
                 `-- adapter
-                    |-- driven
-                    `-- driver
+                    |-- driver // driver adapters use/call driver port interfaces
+                    `-- driven // driven adapters implement outbound/right/secondary ports
 
 ```
 You can notice that, we have separated the `app` from `infrastructure`, this separation comes from the original
