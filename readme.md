@@ -16,7 +16,7 @@ But hexagonal is not a new trend, it has been here for a while, this kind of arc
 It is important to mention that hexagonal, like onion or clean architectures are a family of architectural patterns
  that rely on a pattern described by Rover C. Martin (Uncle Bob) in 1996, the [dependency inversion principle](https://blog.cleancoder.com/uncle-bob/2016/01/04/ALittleArchitecture.html), the D of solid, as a base pattern.
 
-
+Another interesting [explanation](https://softwarecampament.wordpress.com/portsadapters/).
 
 ### AKA Ports and Adapters
 
@@ -148,5 +148,3 @@ We didn't follow these trends because we wanted to follow the original idea.
 ./gradlew build
 java -jar build/libs/implementing-hexagonal-architecture-all.jar 
 ```
-
-
