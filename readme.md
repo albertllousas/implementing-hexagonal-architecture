@@ -20,7 +20,10 @@ Another interesting [explanation](https://softwarecampament.wordpress.com/portsa
 
 ### AKA Ports and Adapters
 
-All the architecture idea is around *Ports* and *Adapters*, let's see what they mean ...
+When people talk about hexagonal architecture, they used to talk about layers, but in hexagonal architecture there
+ are no layers, it is all about ports, adapters and of course, dependency inversion.
+ 
+As we just said, the whole idea is around *Ports* and *Adapters*, let's see what they mean ...
 
 This is how a typical hexagonal app looks like:
 
