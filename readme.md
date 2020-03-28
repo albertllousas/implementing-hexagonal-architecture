@@ -98,10 +98,10 @@ These are the packages of our app, hexagonal does not force to have any pakage s
             |   |-- domain // our domain model
             |   |-- port // boundaries
             |   |   |-- driver // inbound/left boundary to the hexagon (interfaces), hexagon entrypoint
-            |   |   `-- driven // outbound/right boundary to the hexagon (interfaces)
-            |   `-- usecase // implementation driver ports, orchestrators of the user use-cases
+            |   |   `-- driven // outbound/right boundary to the hexagon (interfaces), hexagon calls to the outside
+            |   `-- usecase // implement driver ports, orchestrators of the app exposed use-cases
             `-- infrastructure // outside world
-                `-- config // framework config, wiring
+                `-- config // framework config & wiring
                 `-- adapter
                     |-- driver // use/call driver port interfaces
                     `-- driven // implement driven ports
