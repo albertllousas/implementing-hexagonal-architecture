@@ -97,7 +97,7 @@ These are the packages of our app, hexagonal does not force to have any pakage s
 `-- com
     `-- bank
         `-- transfers
-            |-- app // the hexagon
+            |-- app // the inner hexagon
             |   |-- domain // our domain model
             |   |-- port // boundaries
             |   |   |-- driver // inbound/left boundary to the hexagon (interfaces), hexagon entrypoint
