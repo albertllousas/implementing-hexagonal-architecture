@@ -33,19 +33,17 @@ This is how a typical hexagonal app looks like:
 The core of the hexagon, all the app code lives here, it is **isolated from the rest of the world**, only dependencies
  within itself.
 - *Domain*: The heart of our application, all the business logic, state and behavior.
-- **Ports**: **The boundary of the hexagon**, every communication from/to the outside world to our app will be through
+- **Ports**: **The boundaries of the hexagon**, every communication from/to the outside world to our app will be through
  these boundaries, they are just interfaces.
     - *Driver/primary/input*:An input port is a simple interface that can be called by the entrypoints and it is
-     implemented by a use case, basically it is the API of the application. *Here, adapter (entrypoint like http
-      controller, sqs consumer ...) calls the app through a port*
+     implemented by a use case, basically it is the API of the application. 
      
     - *Driven/secondary/output*: a simple interface that can be called by our use cases or domain (inside the hexagon
     ) if they need something from the outside (database access, for instance), this is an application of the
-     Dependency Inversion Principle (the “D” in SOLID). *Here, the relationship of Port and Adapter is inverted
-     , app calls an adapter (DB, aws ...) through a port*
+     Dependency Inversion Principle (the “D” in SOLID). 
       
-- *Use cases*: They implement the driver ports, they expose the functionality of the app orchestrating actions or steps
- defining the interactions within the domain and ports. 
+- *Use-cases/application-services*: They implement the driver ports, they expose the functionality of the app
+ orchestrating actions or steps defining the interactions within the domain and ports. 
     
 #### Outside world: the infrastructure
 
@@ -61,6 +59,27 @@ This layer is where all components outside of our app live, the I/O components U
     - *Driven/secondary/output*: They implement the driven ports of our domain, they adapt any external interaction
          with the outside world to our domain, they are called from our app domain/usecases. (database, http-clients
           ...)
+
+#### Flow of control
+
+This is the flow of the calls since an entrypoint gets triggered by an actor.
+```
+actor -> driver adapter -> (driver port -> app -> driven port) -> driven adapter -> infrastructure`
+                         |____________________________________|
+                                      Inner Hexagon           
+```
+
+Let's imagine we have a REST service:
+
+1. An actor calls our app by http
+2. Our driver adapter gets triggered
+3. Adapter calls our app through a driver port (inbound boundary)
+4. App, that implements the driver port through a use-case wants starts the business and interacts with the domain
+5. Interactions to the outside world are done with driven ports
+6. Driven adapter gets called, notice that here the relationship of Port and Adapter is inverted, now the adapter
+ implements the port.
+7. Finally, the infrastructure, maybe a DB, AWS, Queue is hit.
+
 
 ## Application overview: banking application
 
@@ -159,4 +178,5 @@ java -jar build/libs/implementing-hexagonal-architecture-all.jar
 ## Links
 - [Original article](https://alistair.cockburn.us/hexagonal-architecture/)
 - [Ports and adapters](https://softwarecampament.wordpress.com/portsadapters/).
+- [Benefits](https://culttt.com/2014/12/31/hexagonal-architecture/)
 - [Hexagonal blog post](https://kurron.bitbucket.io/004/index.html)
