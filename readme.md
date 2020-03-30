@@ -16,8 +16,6 @@ But hexagonal is not a new trend, it has been here for a while, this kind of arc
 It is important to mention that hexagonal, like onion or clean architectures are a family of architectural patterns
  that rely on a pattern described by Rover C. Martin (Uncle Bob) in 1996, the [dependency inversion principle](https://blog.cleancoder.com/uncle-bob/2016/01/04/ALittleArchitecture.html), the D of solid, as a base pattern.
 
-Another interesting [explanation](https://softwarecampament.wordpress.com/portsadapters/).
-
 ### AKA Ports and Adapters
 
 When people talk about hexagonal architecture, they used to talk about layers, but in hexagonal architecture there
@@ -38,12 +36,13 @@ The core of the hexagon, all the app code lives here, it is **isolated from the 
 - **Ports**: **The boundary of the hexagon**, every communication from/to the outside world to our app will be through
  these boundaries, they are just interfaces.
     - *Driver/primary/input*:An input port is a simple interface that can be called by the entrypoints and it is
-     implemented by a use case, basically it is the API of the application.
+     implemented by a use case, basically it is the API of the application. *Here, adapter (entrypoint like http
+      controller, sqs consumer ...) calls the app through a port*
      
-    - *Driven/secondary/output*: a simple interface that can be called by our use cases or domain if they need
-     something
-     from the outside (database access, for instance), this is an application of the Dependency Inversion
-      Principle (the “D” in SOLID)
+    - *Driven/secondary/output*: a simple interface that can be called by our use cases or domain (inside the hexagon
+    ) if they need something from the outside (database access, for instance), this is an application of the
+     Dependency Inversion Principle (the “D” in SOLID). *Here, the relationship of Port and Adapter is inverted
+     , app calls an adapter (DB, aws ...) through a port*
       
 - *Use cases*: They implement the driver ports, they expose the functionality of the app orchestrating actions or steps
  defining the interactions within the domain and ports. 
@@ -156,3 +155,8 @@ We didn't follow these trends because we wanted to follow the original idea.
 ./gradlew build
 java -jar build/libs/implementing-hexagonal-architecture-all.jar 
 ```
+
+## Links
+- [Original article](https://alistair.cockburn.us/hexagonal-architecture/)
+- [Ports and adapters](https://softwarecampament.wordpress.com/portsadapters/).
+- [Hexagonal blog post](https://kurron.bitbucket.io/004/index.html)
