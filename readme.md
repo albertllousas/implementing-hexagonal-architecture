@@ -5,6 +5,20 @@ The idea of this project is to understand and see how we can apply hexagonal arc
 
 Everything will be covered with test during the process because it has been done doing outside-in tdd.
 
+- [Implementing hexagonal architecture](#implementing-hexagonal-architecture)
+  * [Hexagonal architecture overview](#hexagonal-architecture-overview)
+    + [AKA Ports and Adapters](#aka-ports-and-adapters)
+      - [App:](#app-)
+      - [Outside world: the infrastructure](#outside-world--the-infrastructure)
+      - [Flow of calls](#flow-of-calls)
+  * [Application overview: banking application](#application-overview--banking-application)
+    + [Code structure](#code-structure)
+    + [Important note: modern approaches](#important-note--modern-approaches)
+  * [tech stack](#tech-stack)
+  * [Running tests](#running-tests)
+  * [Run the app](#run-the-app)
+  * [Links](#links)
+
 ## Hexagonal architecture overview
 
 Hexagonal architecture is an architectural pattern, a way to build and structure your applications in order to obtain
@@ -60,7 +74,7 @@ This layer is where all components outside of our app live, the I/O components U
          with the outside world to our domain, they are called from our app domain/usecases. (database, http-clients
           ...)
 
-#### Flow of control
+#### Flow of calls
 
 This is the flow of the calls since an entrypoint gets triggered by an actor.
 ```
@@ -143,7 +157,7 @@ Modern approaches are based/inspired on this idea, omitting ports and adapters p
   
 Hexagonal is also usually mixed with other patterns like CQRS or DDD, like Vaughn Vernon [does in his samples od DDD](https://github.com/VaughnVernon/IDDD_Samples).
 
-#### Modern layering
+**Modern layering**
 
 It is important to mention that it is almost a convention in all hexagonal projects to follow the following packaging
  and layering:
