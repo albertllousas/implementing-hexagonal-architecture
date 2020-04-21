@@ -124,8 +124,9 @@ Trying to stick on the principles of the original idea of Alistair Cockburn and 
 
 ### Code structure
 
-These are the packages of our app, hexagonal does not force to have any package structure, it's all about ports and
- adapters, but we have tried to **go-by-the-book** and follow Alistair Cockburn first idea: 
+These are the [packages](./src/main/kotlin/com/bank/transfers/) the app, hexagonal does not force to have any package
+ structure , it's all about ports and adapters, but we have tried to **go-by-the-book** and follow Alistair Cockburn first idea:
+  
  ```kotlin
 `-- com
     `-- bank
