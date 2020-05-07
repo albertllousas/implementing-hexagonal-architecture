@@ -70,8 +70,8 @@ This layer is where all components outside of our app live, the I/O components U
           consumers, console and many others belong here.
          
     - *Driven/secondary/output*: They implement the driven ports of our domain, they adapt any external interaction
-         with the outside world to our domain, they are called from the insdie the hexagon, from our app domain/usecases
-         . Repository implementations, http-client wrappers or queue producers are the most common ones...
+         with the outside world to our domain, they are called from the inside of the hexagon, either the app domain
+          or the usecases. Repository implementations, http-client or queue producers are the most common ones.
 
 #### Flow of calls
 
