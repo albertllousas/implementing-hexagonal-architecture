@@ -65,11 +65,9 @@ This layer is where all components outside of our app live, the I/O components U
 , devices, clients... everything but the app core.
 - **Adapters**: In hexagonal architecture all the primary and secondary actors interact with the application ports
  through adapters, they are the translators between the domain and the infrastructure. 
-    - *Driver/left/input*: Primary adapters or “driving” adapters, they call the driver ports to initiate
+    - *Driver/left/input*: Primary adapters or “driving” adapters, they call/use the driver ports to initiate
          interactions with the app, the entrypoints to our app. Typically http controllers, schedulers, queue
           consumers, console and many others belong here.
-         A driver adapter uses a driver port interface, converting a specific technology request into a technology agnostic 
-         request to a driver port.
          
     - *Driven/secondary/output*: They implement the driven ports of our domain, they adapt any external interaction
          with the outside world to our domain, they are called from the insdie the hexagon, from our app domain/usecases
