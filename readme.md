@@ -192,5 +192,5 @@ java -jar build/libs/implementing-hexagonal-architecture-all.jar
 ## Links
 - [Original article](https://alistair.cockburn.us/hexagonal-architecture/)
 - [Ports and adapters pattern](https://jmgarridopaz.github.io/content/hexagonalarchitecture.html)
-- [Benefits](https://culttt.com/2014/12/31/hexagonal-architecture/)
+- Benefits[1](https://culttt.com/2014/12/31/hexagonal-architecture/)[2](https://crosp.net/blog/software-architecture/clean-architecture-part-1-databse-vs-domain/)[3](https://madewithlove.com/hexagonal-architecture-demystified/)
 - [Hexagonal blog post](https://kurron.bitbucket.io/004/index.html)
