@@ -72,14 +72,15 @@ This layer is where all components outside of our app live, the I/O components U
     - *Driven/secondary/output*: They implement the driven ports of our domain, they adapt any external interaction
          with the outside world to our domain, they are called from the inside of the hexagon, either the app domain
           or the usecases. Repository implementations, http-client or queue producers are the most common ones.
+**Note:** Adapters are considered part of the hexagon, but the "outer" section in the infrastructure side.
 
 #### Flow of calls
 
 This is the flow of the calls since an entrypoint gets triggered by an actor.
 ```
 actor -> driver adapter -> (driver port -> app -> driven port) -> driven adapter -> infrastructure`
-                         |____________________________________|
-                                      Inner Hexagon           
+       |________________|____________________________________|___________________|
+         Outer Hexagon             Inner Hexagon                 Outer Hexagon
 ```
 
 Let's imagine we have a REST service:
