@@ -40,7 +40,7 @@ As we just said, the whole idea is around *Ports* and *Adapters*, let's see what
 This is how a typical hexagonal app looks like:
 
 <p align="center">
-  <img src="misc/hexagonal.png">
+  <img src="misc/hexagonal-diagram.png">
 </p>
 
 #### App: 
@@ -53,8 +53,8 @@ The core of the hexagon, all the app code lives here, it is **isolated from the 
     and it is implemented by a use case, basically it is the API of the application. 
      
     - *Driven/right/output*: a simple interface that can be called by our use cases or domain (inside the hexagon) if 
-    they need something from the outside (secondary actors, a database access, for instance). Here, we have an 
-     application of the Dependency Inversion Principle (the “D” in SOLID). 
+    they need something from the outside (secondary actors, a database access, for instance). Here, we have 
+     Dependency Inversion Principle (the “D” in SOLID) in practice. 
       
 - *Use-cases/application-services*: They implement the driver ports, they expose the functionality of the app
  orchestrating actions or steps, defining the interactions within the domain and ports. 
