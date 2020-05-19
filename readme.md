@@ -73,6 +73,9 @@ This layer is where all components outside of our app live, the I/O components U
          with the outside world to our domain, they are called from the inside of the hexagon, either the app domain
           or the usecases. Repository implementations, http-client or queue producers are the most common ones.
           
+- Everything else: Any other class outside the hexagon would belong here, framework related components, configuration
+ ...
+          
 **Note:** Adapters are considered part of the hexagon, but the "outer" section in the infrastructure side.
 
 #### Flow of calls
