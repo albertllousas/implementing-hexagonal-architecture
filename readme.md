@@ -40,7 +40,7 @@ As we just said, the whole idea is around *Ports* and *Adapters*, let's see what
 This is how a typical hexagonal app looks like:
 
 <p align="center">
-  <img src="misc/hexagonal-diagram.png">
+  <img src="misc/hexagonal.png">
 </p>
 
 #### App: 
