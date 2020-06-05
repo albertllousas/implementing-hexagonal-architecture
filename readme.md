@@ -28,7 +28,8 @@ But hexagonal is not a new trend, it has been here for a while, this kind of arc
  Cockburn](https://en.wikipedia.org/wiki/Alistair_Cockburn) in an made public in an [article](https://alistair.cockburn.us/hexagonal-architecture/) published in 2005.
  
 It is important to mention that hexagonal, like onion or clean architectures are a family of architectural patterns
- that rely on a pattern described by Rover C. Martin (Uncle Bob) in 1996, the [dependency inversion principle](https://blog.cleancoder.com/uncle-bob/2016/01/04/ALittleArchitecture.html), the D of solid, as a base pattern.
+ that rely on a pattern described by Robert C. Martin (Uncle Bob) in 1996, the [dependency inversion principle](https
+ ://blog.cleancoder.com/uncle-bob/2016/01/04/ALittleArchitecture.html), the D of solid, as a base pattern.
 
 ### AKA Ports and Adapters
 
