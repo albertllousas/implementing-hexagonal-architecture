@@ -160,12 +160,12 @@ Maybe this an approach is a bit verbose in terms of naming and packaging, but it
 Modern approaches are based/inspired on this idea, omitting ports and adapters packages/names, using
  packaging by [package-by-feature](http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html) or [package-by-component](https://herbertograca.com/2017/11/16/explicit-architecture-01-ddd-hexagonal-onion-clean-cqrs-how-i-put-it-all-together/).
   
-Hexagonal is also usually mixed with other patterns like DDD, like Vaughn Vernon [does in his samples of DDD](https://github.com/VaughnVernon/IDDD_Samples).
+Hexagonal is also usually mixed with other patterns/approaches such as CQRS, EDA or DDD (like Vaughn Vernon [does in his samples of DDD](https://github.com/VaughnVernon/IDDD_Samples)).
 
 **Modern layering**
 
-It is important to mention that a practical approach and almost a convention in all hexagonal projects to follow the following packaging
- and layering (inspired and used in DDD):
+It is important to mention that a practical approach and almost a convention in all hexagonal projects is to follow the packaging
+ and layering inspired and used in DDD:
  ```
  - Application: Application Services (the use cases) 
  - Domain model: domain and ports
