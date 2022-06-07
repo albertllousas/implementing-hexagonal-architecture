@@ -32,7 +32,7 @@ It is important to mention that hexagonal, like onion or clean architectures are
 
 ### AKA Ports and Adapters
 
-When people talk about hexagonal architecture, they used to talk about layers, but in hexagonal architecture there
+When people talk about code architectures, they usually to talk about layers, but in hexagonal architecture there
  are no layers, it is all about ports, adapters and of course, dependency inversion.
  
 As we just said, the whole idea is around *Ports* and *Adapters*, let's see what they mean ...
@@ -56,8 +56,8 @@ The core of the hexagon, all the app code lives here, it is **isolated from the 
     they need something from the outside (secondary actors, a database access, for instance). Here, we have 
      Dependency Inversion Principle (the “D” in SOLID) in practice. 
       
-- *Use-cases/application-services*: They implement the driver ports, they expose the functionality of the app
- orchestrating actions or steps, defining the interactions within the domain and ports. 
+- *Use-cases/application-services*: They implement the driver ports, they expose the functionalities of the app
+ , they orchestrate the infrastructure (ports) and the domain to achieve a single business use case. They are stateless. 
     
 #### Outside world: the infrastructure
 
